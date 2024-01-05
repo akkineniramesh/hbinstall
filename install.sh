@@ -328,8 +328,8 @@ check_run_command_as_root() {
   [[ -f /.dockerenv ]] && return
   [[ -f /run/.containerenv ]] && return
   [[ -f /proc/1/cgroup ]] && grep -E "azpl_job|actions_job|docker|garden|kubepods" -q /proc/1/cgroup && return
-
-  abort "Don't run this as root!"
+  return
+  #abort "Don't run this as root!"
 }
 
 should_install_command_line_tools() {
